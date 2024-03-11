@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @if(ViewBag.NoFile != null)
+    {
+        <p>No file(s) availbe for sorting</p>
+    }
+    else
+    {
+        <p>Sort the @ViewBag.File file by choosing an option below.</p>
+
+        <a asp-action="SortByStreet"><button class="btn btn-primary">Sort by Street Name, Number</button></a>
+
+        <a asp-action="SortByName"><button class="btn btn-primary">Sort by First Name</button></a>
+    }
+</div>

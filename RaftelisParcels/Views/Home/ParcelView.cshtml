@@ -1,0 +1,88 @@
+﻿@model IList<ParcelViewModel>
+
+<div class="text-left">
+    @if(ViewBag.sortBy == 2)
+    {
+        <h4>File Results Sorted by First Name</h4><br/>
+        <a asp-action="SortByStreet"><button class="btn btn-primary">Re-sort by Street</button></a>
+    }
+    else
+    {
+        <h4>File Results Sorted by Street Name, Number</h4><br/>
+        <a asp-action="SortByName"><button class="btn btn-primary">Re-sort by First Name</button></a>
+    }
+   
+</div>
+
+<table class="table" style="margin-top: 20px">
+    <tr>
+        <th>
+           PIN
+        </th>
+        <th>
+           House Number
+        </th>
+        <th>
+            Unit
+        </th>
+        <th>
+            Street        
+        </th>
+        <th>
+            Owner
+        </th>
+        <th>
+            First Name(s)
+        </th>
+        <th>
+            Value
+        </th>
+        <th>
+            Sale Date
+        </th>
+        <th>
+            Sale Price  
+        </th>
+        <th>
+            Links
+        </th>
+    </tr>
+ @foreach(var par in Model)
+    {  
+    <tr>
+        <td>
+          @Html.DisplayFor(modelitem => par.Pin)
+        </td>
+        <td>
+          @Html.DisplayFor(modelitem => par.HouseNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelitem => par.Unit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelitem => par.Street)
+        </td>
+        <td>
+            @Html.DisplayFor(modelitem => par.Owner)
+        </td>
+        <td>
+            @Html.DisplayFor(modelitem => par.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelitem => par.Value)
+        </td>
+        <td>
+            @Html.DisplayFor(modelitem => par.SaleDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelitem => par.SalePrice)
+        </td>
+        <td>
+            <a href=@par.Link target="_blank ">Link to Taxsifter</a>
+            <br/>
+            <a href=@par.LocationUrl target="_blank">Link to property location</a>
+         </td>
+    </tr>
+    }
+</table>
+
